@@ -1,9 +1,9 @@
 .blog-card-container {
-    max-width: 1080px;
     width: 95%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;    
 }
 
 .blog-card {
