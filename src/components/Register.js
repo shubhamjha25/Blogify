@@ -1,8 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const Register = () => {
     return (
-        <h1>Register Page</h1>
+        <>
+            <Navbar />
+            <h1>Register Page</h1>
+        </>
     );
 }
 

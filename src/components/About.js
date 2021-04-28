@@ -1,8 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const About = () => {
     return (
-        <h1>About Us Page</h1>
+        <>
+            <Navbar />
+            <h1>About Us Page</h1>
+        </>
     );
 }
 

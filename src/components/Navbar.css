@@ -15,6 +15,7 @@
 }
 
 .navbar .nav-list li {
+    text-decoration: none;
     list-style: none;
     margin-right: 30px;
     font-size: 1.4rem;
