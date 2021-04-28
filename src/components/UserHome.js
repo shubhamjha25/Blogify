@@ -12,6 +12,13 @@ const UserHome = () => {
         setBlogs(res.data);
     }
 
+    var isAuth = false;
+    var token = localStorage.getItem('tokenStore');
+    if(token)
+        isAuth = true;
+    else
+        isAuth = false;
+
     useEffect(() => {
             getBlogs();
     }, []);
@@ -19,32 +26,43 @@ const UserHome = () => {
     return (
         <>
             <Navbar />
-            <h1>Here's Everything For You To Read!</h1>
-            <div className="blog-card-container">
-                {
-                    blogs.map(blog => (
-                        <div className="blog-card">
-                            <div className="blog-card-left">
-                                <img src={blog.img} alt="Blog-Image" />
+            {
+                isAuth 
+                    ?
+                        <>
+                            <h1>Here's Everything For You To Read!</h1>
+                            <div className="blog-card-container">
+                                {
+                                    blogs.map(blog => (
+                                        <div className="blog-card">
+                                            <div className="blog-card-left">
+                                                <img src={blog.img} alt="Blog-Image" />
+                                            </div>
+                                            <div className="blog-card-right">
+                                                <div className="blog-info">
+                                                    <h2>{blog.title}</h2>
+                                                    <h5><span className="blog-category">{blog.category}</span></h5>
+                                                </div>
+                                                <h4 className="blog-author">Author : {blog.author}</h4>
+                                                <div className="blog-content">
+                                                    <p className="blog-content-desc">{blog.content}</p>
+                                                </div>
+                                                <div className="read-more-btn-holder">
+                                                    <button className="read-more-btn">Read More</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    ))
+                                }
                             </div>
-                            <div className="blog-card-right">
-                                <div className="blog-info">
-                                    <h2>{blog.title}</h2>
-                                    <h5><span className="blog-category">{blog.category}</span></h5>
-                                </div>
-                                <h4 className="blog-author">Author : {blog.author}</h4>
-                                <div className="blog-content">
-                                    <p className="blog-content-desc">{blog.content}</p>
-                                </div>
-                                <div className="read-more-btn-holder">
-                                    <button className="read-more-btn">Read More</button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    ))
-                }
-            </div>
+                        </> 
+                    :
+                        <>
+                            <p>You Need To Login/Register First.</p>
+                        </>
+            }
+            
         </>
     );
 }
