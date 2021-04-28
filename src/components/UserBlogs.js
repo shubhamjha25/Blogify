@@ -1,8 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const UserBlogs = () => {
     return (
-        <h1>User Blogs Page (Your Blogs ...)</h1>
+        <>
+            <Navbar />
+            <h1>User Blogs Page (Your Blogs ...)</h1>
+        </>
     );
 }
 

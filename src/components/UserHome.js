@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './AllBlogs.css';
+import Navbar from './Navbar';
 
 const UserHome = () => {
 
@@ -17,6 +18,7 @@ const UserHome = () => {
 
     return (
         <>
+            <Navbar />
             <h1>Here's Everything For You To Read!</h1>
             <div className="blog-card-container">
                 {
