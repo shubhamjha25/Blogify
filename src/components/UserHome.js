@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './AllBlogs.css';
 import Navbar from './Navbar';
+import LoggedIn from './LoggedIn';
 
 const UserHome = () => {
 
@@ -59,7 +60,7 @@ const UserHome = () => {
                         </> 
                     :
                         <>
-                            <p>You Need To Login/Register First.</p>
+                            <LoggedIn />
                         </>
             }
             
