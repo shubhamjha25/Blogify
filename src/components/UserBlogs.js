@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -62,7 +62,11 @@ const UserBlogs = () => {
                                                     <p className="blog-content-desc">{blog.content}</p>
                                                 </div>
                                                 <div className="read-more-btn-holder">
-                                                    <button className="read-more-btn">Read More</button>
+                                                    <button className="read-more-btn">
+                                                        <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                            Read More
+                                                        </Link>
+                                                    </button>
                                                 </div>
                                             </div>
                                             

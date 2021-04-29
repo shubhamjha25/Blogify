@@ -1,0 +1,24 @@
+.blog-view-container {
+    max-width: 1096px;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.blog-view-container .blog-view .blog-view-title {
+    font-size: 48px;
+}
+
+.blog-view-container .blog-view .blog-view-img {
+    display: block;
+    width: 100%;
+}
+
+.blog-view-container .blog-view .blog-view-author {
+    margin-top: 12px;
+    font-size: 30px;
+}
+
+.blog-view-container .blog-view .blog-view-content {
+    font-size: 21px;
+    text-align: justify;
+}

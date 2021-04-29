@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 import axios from 'axios'
 import './AllBlogs.css';
 import Navbar from './Navbar';
@@ -51,7 +51,9 @@ const UserHome = () => {
                                                     <p className="blog-content-desc">{blog.content}</p>
                                                 </div>
                                                 <div className="read-more-btn-holder">
-                                                    <button className="read-more-btn">Read More</button>
+                                                    <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                        Read More
+                                                    </Link>
                                                 </div>
                                             </div>
                                             

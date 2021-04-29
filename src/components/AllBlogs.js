@@ -8,6 +8,11 @@ const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
 
     var isAuth = false;
+    var token = localStorage.getItem('tokenStore');
+    if(token)
+        isAuth = true;
+    else
+        isAuth = false;
 
     const getBlogs = async () => {
         const res = await axios.get('https://obscure-shelf-45797.herokuapp.com/blogs/getAll');
