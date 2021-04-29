@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios'
 import './AllBlogs.css';
 import Navbar from './Navbar';
-import LoggedIn from './LoggedIn';
 
 const UserHome = () => {
 
@@ -19,6 +19,8 @@ const UserHome = () => {
         isAuth = true;
     else
         isAuth = false;
+    
+    const history = useHistory()
 
     useEffect(() => {
             getBlogs();
@@ -60,7 +62,7 @@ const UserHome = () => {
                         </> 
                     :
                         <>
-                            <LoggedIn />
+                            {history.push('/authError')}
                         </>
             }
             

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './AllBlogs.css';
+import { Link } from 'react-router-dom';
 
 const AllBlogs = () => {
 
     const [blogs, setBlogs] = useState([]);
+
+    var isAuth = false;
 
     const getBlogs = async () => {
         const res = await axios.get('https://obscure-shelf-45797.herokuapp.com/blogs/getAll');
@@ -35,7 +38,19 @@ const AllBlogs = () => {
                                     <p className="blog-content-desc">{blog.content}</p>
                                 </div>
                                 <div className="read-more-btn-holder">
-                                    <button className="read-more-btn">Read More</button>
+                                    <button className="read-more-btn">
+                                        {
+                                            isAuth ? 
+                                            <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                Read More
+                                            </Link>
+                                            :
+                                            <Link to="/authError" style={{textDecoration: "none", color: "black"}}>
+                                                Read More
+                                            </Link>   
+
+                                        }
+                                    </button>
                                 </div>
                             </div>
                             

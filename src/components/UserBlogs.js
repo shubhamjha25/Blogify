@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import LoggedIn from './LoggedIn';
+import {useHistory} from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
@@ -14,8 +14,13 @@ const UserBlogs = () => {
     else
         isAuth = false;
 
-    var decoded = jwt_decode(token);
-    const userID = decoded.id;
+    if(isAuth == true)
+    {
+        var decoded = jwt_decode(token);
+        var userID = decoded.id;
+    }
+
+    var history = useHistory();
 
     const [blogs, setBlogs] = useState([]);
 
@@ -41,33 +46,37 @@ const UserBlogs = () => {
                         <>
                             <h1>Here's What You Have Written!</h1>
                             <div className="blog-card-container">
-                            {
-                                blogs.map(blog => (
-                                    <div className="blog-card">
-                                        <div className="blog-card-left">
-                                            <img src={blog.img} alt="Blog-Image" />
+                                {
+                                    blogs.map(blog => (
+                                        <div className="blog-card">
+                                            <div className="blog-card-left">
+                                                <img src={blog.img} alt="Blog-Image" />
+                                            </div>
+                                            <div className="blog-card-right">
+                                                <div className="blog-info">
+                                                    <h2>{blog.title}</h2>
+                                                    <h5><span className="blog-category">{blog.category}</span></h5>
+                                                </div>
+                                                <h4 className="blog-author">Author : {blog.author}</h4>
+                                                <div className="blog-content">
+                                                    <p className="blog-content-desc">{blog.content}</p>
+                                                </div>
+                                                <div className="read-more-btn-holder">
+                                                    <button className="read-more-btn">Read More</button>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                        <div className="blog-card-right">
-                                            <div className="blog-info">
-                                                <h2>{blog.title}</h2>
-                                                <h5><span className="blog-category">{blog.category}</span></h5>
-                                            </div>
-                                            <h4 className="blog-author">Author : {blog.author}</h4>
-                                            <div className="blog-content">
-                                                <p className="blog-content-desc">{blog.content}</p>
-                                            </div>
-                                            <div className="read-more-btn-holder">
-                                                <button className="read-more-btn">Read More</button>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                ))
-                            }
-            </div>
+                                    ))
+                                }
+                            </div>
                         </>
                     :
-                        <LoggedIn />
+                        <>
+                            {
+                                history.push('/authError')
+                            }
+                        </>
             }
         </>
     );
