@@ -36,11 +36,12 @@ function Navbar() {
                             <li className="current-user-info">Signed in as : <strong>{userEMAIL}</strong></li>
                             <li><Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
                             <li><Link to="/blogs" style={{ textDecoration: 'none', color: 'black' }}>Your Blogs</Link></li>
-                            <li>Write a Blog</li>
+                            <li><Link to="/create" style={{ textDecoration: 'none', color: 'black' }}>Write a Blog</Link></li>
                             <li onClick={logoutSubmit}><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Logout</Link></li>
                         </> 
                     :
                         <>
+                            <li><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
                             <li><Link to="/about" style={{ textDecoration: 'none', color: 'black' }}>About</Link></li>
                             <li><Link to="/login" style={{ textDecoration: 'none', color: 'black' }}>Login</Link></li>
                             <li><Link to="/register" style={{ textDecoration: 'none', color: 'black' }}>Register</Link></li>

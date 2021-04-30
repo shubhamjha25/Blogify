@@ -51,7 +51,7 @@ const UserHome = () => {
                                                     <p className="blog-content-desc">{blog.content}</p>
                                                 </div>
                                                 <div className="read-more-btn-holder">
-                                                    <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                    <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}} className="read-more-btn">
                                                         Read More
                                                     </Link>
                                                 </div>

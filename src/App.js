@@ -8,6 +8,7 @@ import UserHome from './components/UserHome'
 import UserBlogs from './components/UserBlogs';
 import BlogView from './components/BlogView';
 import AuthError from './components/AuthError';
+import CreateBlog from './components/CreateBlog';
 import {Route, Switch} from 'react-router-dom';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/login" component={Login} exact />
                 <Route path="/authError" component={AuthError} exact />
                 <Route path="/blogs/:id" component={BlogView} exact />
+                <Route path="/create" component={CreateBlog} exact />
             </Switch>
     </div>
   );
