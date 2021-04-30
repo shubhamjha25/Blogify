@@ -23,3 +23,11 @@
     padding-bottom: 3px;
     cursor: pointer;
 }
+
+.current-user-info {
+    border: 2px solid gray;
+    border-radius: 50px;
+    background-color: whitesmoke;
+    padding: 8px 15px !important;
+    margin-right: 100px !important;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import Logo from '../Blogify.PNG';
+import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -16,6 +17,12 @@ function Navbar() {
     else
         isAuth = false;
 
+    if(isAuth == true)
+    {
+        var decoded = jwt_decode(token);
+        var userEMAIL = decoded.email;
+    }
+
     return (
         <section className="navbar">
             <div className="logo">    
@@ -26,6 +33,7 @@ function Navbar() {
                     isAuth 
                     ?
                         <>
+                            <li className="current-user-info">Signed in as : <strong>{userEMAIL}</strong></li>
                             <li><Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></li>
                             <li><Link to="/blogs" style={{ textDecoration: 'none', color: 'black' }}>Your Blogs</Link></li>
                             <li>Write a Blog</li>
