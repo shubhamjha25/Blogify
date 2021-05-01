@@ -24,6 +24,14 @@
     cursor: pointer;
 }
 
+
+.nav-link:hover {
+    color: #013220 !important;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #1F3D0C;
+    font-weight: 900;
+}
+
 .current-user-info {
     border: 2px solid gray;
     border-radius: 50px;
