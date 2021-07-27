@@ -15,7 +15,7 @@ const CreateBlog = () => {
         title: '',
         author: '',
         category: '',
-        imgURL: '',
+        img: '',
         content: '',
         date: today
     });
@@ -39,9 +39,9 @@ const CreateBlog = () => {
         try {
             const token = localStorage.getItem('tokenStore');
             if(token){
-                const {title, author, category, imgURL, content, date} = blog;
+                const {title, author, category, img, content, date} = blog;
                 const newBlog = {
-                    title, author, category, imgURL, content, date
+                    title, author, category, img, content, date
                 }
 
                 await axios.post('https://obscure-shelf-45797.herokuapp.com/blogs/createBlogs', newBlog, {
@@ -51,7 +51,8 @@ const CreateBlog = () => {
                 return history.push('/blogs');
             }
         } catch (err) {
-            console.log(err);
+            console.log(err.response.data);
+            alert(err.response.data);
             window.location.href = "/home";
         }
     }
@@ -93,10 +94,10 @@ const CreateBlog = () => {
                                     </div>
                                     <div className="row">
                                         <div className="col-25">
-                                            <label htmlFor="imgURL">Image URL</label>
+                                            <label htmlFor="img">Image URL</label>
                                         </div>
                                         <div className="col-75">
-                                            <input type="text" id="imgURL" name="imgURL" placeholder="Link of a relatable image for your blog" required value={blog.imgURL} onChange={onChangeInput} />
+                                            <input type="text" id="img" name="img" placeholder="Link of a relatable image for your blog" required value={blog.img} onChange={onChangeInput} />
                                         </div>
                                     </div>
                                     <div className="row">
