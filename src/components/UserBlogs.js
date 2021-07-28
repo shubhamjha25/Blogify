@@ -37,6 +37,19 @@ const UserBlogs = () => {
             getBlogs();
     }, []);
 
+    const deleteBlog = async (id) =>{
+        try {
+            if(token){
+                await axios.delete(`https://obscure-shelf-45797.herokuapp.com/blogs/deleteBlog/${id}`, {
+                    headers: {Authorization: token}
+                });
+                getBlogs();
+            }
+        } catch (error) {
+            window.location.href = "/";
+        }
+    }
+
     return (
         <>
             <Navbar />
@@ -70,7 +83,7 @@ const UserBlogs = () => {
                                                     <button className="update-btn">
                                                             Update
                                                     </button>
-                                                    <button className="delete-btn">
+                                                    <button className="delete-btn" onClick={() => deleteBlog(blog._id)}>
                                                             Delete     
                                                     </button>
                                                 </div>
