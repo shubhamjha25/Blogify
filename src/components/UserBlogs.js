@@ -67,6 +67,12 @@ const UserBlogs = () => {
                                                             Read More
                                                         </Link>
                                                     </button>
+                                                    <button className="update-btn">
+                                                            Update
+                                                    </button>
+                                                    <button className="delete-btn">
+                                                            Delete     
+                                                    </button>
                                                 </div>
                                             </div>
                                             

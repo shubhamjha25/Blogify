@@ -71,4 +71,26 @@
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
+    margin-right: 8px;
+}
+
+.delete-btn {
+    background: red;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background: lightgreen;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px;
 }
