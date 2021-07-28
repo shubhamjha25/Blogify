@@ -81,14 +81,15 @@ const UserBlogs = () => {
                                                         </Link>
                                                     </button>
                                                     <button className="update-btn">
+                                                        <Link to={`edit/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
                                                             Update
+                                                        </Link>
                                                     </button>
                                                     <button className="delete-btn" onClick={() => deleteBlog(blog._id)}>
                                                             Delete     
                                                     </button>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     ))
                                 }

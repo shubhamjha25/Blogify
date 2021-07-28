@@ -10,6 +10,7 @@ import BlogView from './components/BlogView';
 import AuthError from './components/AuthError';
 import CreateBlog from './components/CreateBlog';
 import {Route, Switch} from 'react-router-dom';
+import EditBlog from './components/EditBlog';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                 <Route path="/authError" component={AuthError} exact />
                 <Route path="/blogs/:id" component={BlogView} exact />
                 <Route path="/create" component={CreateBlog} exact />
+                <Route path="/edit/:id" component={EditBlog} />
             </Switch>
     </div>
   );
