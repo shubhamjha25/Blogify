@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import './AllBlogs.css'
+import Loader from './Loader';
 
 const UserBlogs = () => {
 
@@ -23,6 +24,7 @@ const UserBlogs = () => {
     var history = useHistory();
 
     const [blogs, setBlogs] = useState([]);
+    const [loadingTimeOver, setLoadingTimeOver] = useState(false);
 
     const getBlogs = async () => {
         const res = await axios.get('https://obscure-shelf-45797.herokuapp.com/blogs/getBlogs',
@@ -31,6 +33,7 @@ const UserBlogs = () => {
             );
         console.log(res.data);
         setBlogs(res.data);
+        setLoadingTimeOver(true);
     }
 
     useEffect(() => {
@@ -58,42 +61,48 @@ const UserBlogs = () => {
                     ?
                         <>
                             <h1>Here's What You Have Written!</h1>
-                            <div className="blog-card-container">
-                                {
-                                    blogs.map(blog => (
-                                        <div className="blog-card">
-                                            <div className="blog-card-left">
-                                                <img src={blog.img} alt="Blog-Image" />
-                                            </div>
-                                            <div className="blog-card-right">
-                                                <div className="blog-info">
-                                                    <h2>{blog.title}</h2>
-                                                    <h5><span className="blog-category">{blog.category}</span></h5>
-                                                </div>
-                                                <h4 className="blog-author">Author : {blog.author}</h4>
-                                                <div className="blog-content">
-                                                    <p className="blog-content-desc">{blog.content}</p>
-                                                </div>
-                                                <div className="read-more-btn-holder">
-                                                    <button className="read-more-btn">
-                                                        <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
-                                                            Read More
-                                                        </Link>
-                                                    </button>
-                                                    <button className="update-btn">
-                                                        <Link to={`edit/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
-                                                            Update
-                                                        </Link>
-                                                    </button>
-                                                    <button className="delete-btn" onClick={() => deleteBlog(blog._id)}>
-                                                            Delete     
-                                                    </button>
-                                                </div>
-                                            </div>
+                            {
+                                loadingTimeOver
+                                    ?
+                                        <div className="blog-card-container">
+                                            {
+                                                blogs.map(blog => (
+                                                    <div className="blog-card">
+                                                        <div className="blog-card-left">
+                                                            <img src={blog.img} alt="Blog-Image" />
+                                                        </div>
+                                                        <div className="blog-card-right">
+                                                            <div className="blog-info">
+                                                                <h2>{blog.title}</h2>
+                                                                <h5><span className="blog-category">{blog.category}</span></h5>
+                                                            </div>
+                                                            <h4 className="blog-author">Author : {blog.author}</h4>
+                                                            <div className="blog-content">
+                                                                <p className="blog-content-desc">{blog.content}</p>
+                                                            </div>
+                                                            <div className="read-more-btn-holder">
+                                                                <button className="read-more-btn">
+                                                                    <Link to={`blogs/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                                        Read More
+                                                                    </Link>
+                                                                </button>
+                                                                <button className="update-btn">
+                                                                    <Link to={`edit/${blog._id}`} style={{textDecoration: "none", color: "black"}}>
+                                                                        Update
+                                                                    </Link>
+                                                                </button>
+                                                                <button className="delete-btn" onClick={() => deleteBlog(blog._id)}>
+                                                                        Delete     
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
                                         </div>
-                                    ))
-                                }
-                            </div>
+                                    :
+                                        <Loader />
+                            }
                         </>
                     :
                         <>

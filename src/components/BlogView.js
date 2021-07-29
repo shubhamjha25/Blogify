@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
 import './BlogView.css';
+import Loader from './Loader';
 
 const BlogView = ({match}) => {
 
@@ -22,7 +23,9 @@ const BlogView = ({match}) => {
         category: '',
         content: '',
         date: ''
-    })
+    });
+
+    const [loadingTimeOver, setLoadingTimeOver] = useState(false);
 
     useEffect(() =>{
         const getBlog = async () =>{
@@ -42,6 +45,7 @@ const BlogView = ({match}) => {
                 })
             }
             console.log(blog);
+            setLoadingTimeOver(true);
         }
         getBlog();
     },[match.params.id])
@@ -50,23 +54,27 @@ const BlogView = ({match}) => {
         <>
             <Navbar />
             {
-                isAuth 
+                loadingTimeOver
                     ?
-                        <>
-                            <div className="blog-view-container">
-                                <div className="blog-view">
-                                    <h1 className="blog-view-title">{blog.title}</h1>
-                                    <img className="blog-view-image" src={blog.img} />
-                                    <h2 className="blog-view-author">Written By : {blog.author}</h2>
-                                    <p className="blog-view-content">{blog.content}</p>
-                                    <h3>Last Updated on : {blog.date}</h3>
-                                </div>
-                            </div>
-                        </>
+                        isAuth 
+                            ?
+                                <>
+                                    <div className="blog-view-container">
+                                        <div className="blog-view">
+                                            <h1 className="blog-view-title">{blog.title}</h1>
+                                            <img className="blog-view-image" src={blog.img} />
+                                            <h2 className="blog-view-author">Written By : {blog.author}</h2>
+                                            <p className="blog-view-content">{blog.content}</p>
+                                            <h3>Last Updated on : {blog.date}</h3>
+                                        </div>
+                                    </div>
+                                </>
+                            :
+                                <>
+                                    { history.push("/authError") }
+                                </>
                     :
-                        <>
-                            { history.push("/authError") }
-                        </>
+                        <Loader />
             }
         </>
     );

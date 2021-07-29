@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Navbar from './Navbar';
 import {useHistory} from 'react-router-dom'
+import Loader from './Loader';
 
 function EditBlog({match}) {
 
@@ -20,6 +21,8 @@ function EditBlog({match}) {
         date: '',
         id: ''
     });
+
+    const [loadingTimeOver, setLoadingTimeOver] = useState(false);
 
     var isAuth = false;
     var token = localStorage.getItem('tokenStore');
@@ -47,6 +50,7 @@ function EditBlog({match}) {
                     id: res.data._id
                 });
             }
+            setLoadingTimeOver(true);
         }
         getBlog();
     },[match.params.id])
@@ -84,58 +88,62 @@ function EditBlog({match}) {
             {
                 isAuth 
                     ?
-                        <>
-                            <div className="create-blog-container">
-                                <h1>Editing {blog.title}</h1>
+                        loadingTimeOver
+                            ?
+                                <>
+                                    <div className="create-blog-container">
+                                        <h1>Editing {blog.title}</h1>
 
-                                <form onSubmit={editBlog}>
-                                    <div className="row">
-                                        <div className="col-25">
-                                            <label htmlFor="title">Blog Title</label>
-                                        </div>
-                                        <div className="col-75">
-                                            <input type="text" id="title" name="title" placeholder="Title of the Blog ..." required value={blog.title} onChange={onChangeInput} />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-25">
-                                            <label htmlFor="author">Author's Name</label>
-                                        </div>
-                                        <div className="col-75">
-                                            <input type="text" id="author" name="author" placeholder="Your name here ..." required value={blog.author} onChange={onChangeInput} />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-25">
-                                            <label htmlFor="category">Category</label>
-                                        </div>
-                                        <div className="col-75">
-                                            <input type="text" id="category" name="category" placeholder="The Field of The Blog (Tech, Healthcare etc ...)" required value={blog.category} onChange={onChangeInput} />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-25">
-                                            <label htmlFor="img">Image URL</label>
-                                        </div>
-                                        <div className="col-75">
-                                            <input type="text" id="img" name="img" placeholder="Link of a relatable image for your blog" required value={blog.img} onChange={onChangeInput} />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-25">
-                                            <label htmlFor="content">Article</label>
-                                        </div>
-                                        <div className="col-75">
-                                            <textarea id="content" name="content" placeholder="Write something.." style={{ height: "200px" }} required value={blog.content} onChange={onChangeInput}></textarea>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <button className="blog-post" type="submit">Update</button>
-                                    </div>
-                                </form>
+                                        <form onSubmit={editBlog}>
+                                            <div className="row">
+                                                <div className="col-25">
+                                                    <label htmlFor="title">Blog Title</label>
+                                                </div>
+                                                <div className="col-75">
+                                                    <input type="text" id="title" name="title" placeholder="Title of the Blog ..." required value={blog.title} onChange={onChangeInput} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-25">
+                                                    <label htmlFor="author">Author's Name</label>
+                                                </div>
+                                                <div className="col-75">
+                                                    <input type="text" id="author" name="author" placeholder="Your name here ..." required value={blog.author} onChange={onChangeInput} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-25">
+                                                    <label htmlFor="category">Category</label>
+                                                </div>
+                                                <div className="col-75">
+                                                    <input type="text" id="category" name="category" placeholder="The Field of The Blog (Tech, Healthcare etc ...)" required value={blog.category} onChange={onChangeInput} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-25">
+                                                    <label htmlFor="img">Image URL</label>
+                                                </div>
+                                                <div className="col-75">
+                                                    <input type="text" id="img" name="img" placeholder="Link of a relatable image for your blog" required value={blog.img} onChange={onChangeInput} />
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-25">
+                                                    <label htmlFor="content">Article</label>
+                                                </div>
+                                                <div className="col-75">
+                                                    <textarea id="content" name="content" placeholder="Write something.." style={{ height: "200px" }} required value={blog.content} onChange={onChangeInput}></textarea>
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <button className="blog-post" type="submit">Update</button>
+                                            </div>
+                                        </form>
 
-                            </div>
-                        </> 
+                                    </div>
+                                </>
+                            :
+                                <Loader /> 
                     :
                         <>
                             { history.push('/authError') }
