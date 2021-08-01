@@ -124,3 +124,22 @@
           left: 45%;
       }
   }
+
+/* CSS for Dev Cards */
+.github-btn {
+    background: black;
+    color: whitesmoke;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 9px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.dev-pic {
+    width: 200px !important;
+    height: 225px !important;
+    border-radius: 7px;
+}
