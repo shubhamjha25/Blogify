@@ -143,3 +143,19 @@
     height: 225px !important;
     border-radius: 7px;
 }
+
+/* MODAL BTN */
+#modalBtn {
+    position: fixed; 
+    bottom: 12px;
+    right: 10px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #555; 
+    color: white; 
+    cursor: pointer; 
+    padding: 9px 15px; 
+    border-radius: 10px; 
+    font-size: 18px; 
+}

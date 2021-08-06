@@ -78,6 +78,12 @@ const Paragraph = () => {
     );
 }
 
+const ModalBtn = () => {
+    return (
+        <button id="modalBtn" title="What's Next?">?</button>
+    );
+}
+
 const About = () => {
     return (
         <>
@@ -87,6 +93,7 @@ const About = () => {
             <h2>About the Developers</h2>
             <DevCard />
             <hr />
+            <ModalBtn />
             <p style={{textAlign: 'center'}}>Copyright &copy; 2021 All Rights Reserved by <strong>Blogify.</strong></p>
         </>
     );
