@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Blogify/static/css/main.9e7fdbd1.chunk.css",
-    "main.js": "/Blogify/static/js/main.fdf5b834.chunk.js",
-    "main.js.map": "/Blogify/static/js/main.fdf5b834.chunk.js.map",
+    "main.js": "/Blogify/static/js/main.ac2709fb.chunk.js",
+    "main.js.map": "/Blogify/static/js/main.ac2709fb.chunk.js.map",
     "runtime-main.js": "/Blogify/static/js/runtime-main.c36f8fec.js",
     "runtime-main.js.map": "/Blogify/static/js/runtime-main.c36f8fec.js.map",
     "static/js/2.7a1d1d74.chunk.js": "/Blogify/static/js/2.7a1d1d74.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.c36f8fec.js",
     "static/js/2.7a1d1d74.chunk.js",
     "static/css/main.9e7fdbd1.chunk.css",
-    "static/js/main.fdf5b834.chunk.js"
+    "static/js/main.ac2709fb.chunk.js"
   ]
 }
