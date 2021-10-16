@@ -39,3 +39,42 @@
     padding: 8px 15px !important;
     margin-right: 100px !important;
 }
+
+@media(max-width: 426px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .blogify-logo {
+        width: 280px;
+    }
+
+    .navbar .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        margin-bottom: 8px;
+    }
+
+    .current-user-info {
+        border: 1px solid gray;
+        border-radius: 50px;
+        background-color: whitesmoke;
+        padding: 8px 8px !important;
+        margin-right: 2px !important;
+    }
+}
+
+@media(max-width: 321px) {
+    .current-user-info {
+        border: 1px solid gray;
+        font-size: 18px !important;
+        border-radius: 50px;
+        background-color: whitesmoke;
+        padding: 10px 15px !important;
+        margin-right: 2px !important;
+    }
+}
