@@ -40,3 +40,18 @@
 .bg-card-para {
     font-size: 19px;
 }
+
+@media(max-width: 426px){
+    .bg-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bg-card {
+        padding: 20px;
+    }
+
+    .bg-card-para {
+        text-align: center;
+    }
+}
