@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Blogify/static/css/main.9e7fdbd1.chunk.css",
-    "main.js": "/Blogify/static/js/main.ac2709fb.chunk.js",
-    "main.js.map": "/Blogify/static/js/main.ac2709fb.chunk.js.map",
+    "main.css": "/Blogify/static/css/main.f3a85155.chunk.css",
+    "main.js": "/Blogify/static/js/main.d882dd62.chunk.js",
+    "main.js.map": "/Blogify/static/js/main.d882dd62.chunk.js.map",
     "runtime-main.js": "/Blogify/static/js/runtime-main.c36f8fec.js",
     "runtime-main.js.map": "/Blogify/static/js/runtime-main.c36f8fec.js.map",
     "static/js/2.7a1d1d74.chunk.js": "/Blogify/static/js/2.7a1d1d74.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.d3b25693.chunk.js": "/Blogify/static/js/3.d3b25693.chunk.js",
     "static/js/3.d3b25693.chunk.js.map": "/Blogify/static/js/3.d3b25693.chunk.js.map",
     "index.html": "/Blogify/index.html",
-    "static/css/main.9e7fdbd1.chunk.css.map": "/Blogify/static/css/main.9e7fdbd1.chunk.css.map",
+    "static/css/main.f3a85155.chunk.css.map": "/Blogify/static/css/main.f3a85155.chunk.css.map",
     "static/js/2.7a1d1d74.chunk.js.LICENSE.txt": "/Blogify/static/js/2.7a1d1d74.chunk.js.LICENSE.txt",
     "static/media/Blogify.e1cd82e5.PNG": "/Blogify/static/media/Blogify.e1cd82e5.PNG"
   },
   "entrypoints": [
     "static/js/runtime-main.c36f8fec.js",
     "static/js/2.7a1d1d74.chunk.js",
-    "static/css/main.9e7fdbd1.chunk.css",
-    "static/js/main.ac2709fb.chunk.js"
+    "static/css/main.f3a85155.chunk.css",
+    "static/js/main.d882dd62.chunk.js"
   ]
 }
