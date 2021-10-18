@@ -22,3 +22,9 @@
     font-size: 21px;
     text-align: justify;
 }
+
+@media(max-width: 426px) {
+    .blog-view-image {
+        width: 100%;
+    }    
+}
