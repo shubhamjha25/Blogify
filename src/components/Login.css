@@ -71,7 +71,7 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 .log-form-btn {
@@ -155,4 +155,11 @@ input[type="checkbox"]:not(:checked) + label, input[type="checkbox"]:checked + l
     padding-top: 6px;
     position: relative;
     text-transform: uppercase;
+}
+
+@media(max-width: 426px)
+{
+    .log-form {
+        width: 300px;
+    }
 }
